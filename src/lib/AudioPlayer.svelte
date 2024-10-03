@@ -1,8 +1,8 @@
 <script lang="ts">
     import PlayePauseButton from "./PlayePauseButton.svelte";
 
-    let song_title = "Dupa"
-    let song_artist = "Chuj"
+    let song_title = "Test title"
+    let song_artist = "Test author"
 
     let player_height = "80px"
 
@@ -53,7 +53,7 @@
     }
 
     .artist {
-        font-family: 'Roboto Regular', sans-serif;
+        font-family: 'Roboto Black', sans-serif;
         font-size: medium;
         font-weight: bold;
     }
