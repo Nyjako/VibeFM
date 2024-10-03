@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { createEventDispatcher } from 'svelte';
     import { tweened } from 'svelte/motion';
     import { cubicInOut } from 'svelte/easing';
 
@@ -25,9 +26,13 @@
     });
   
     let isPlaying = true;
+    const dispatch = createEventDispatcher();
+    dispatch("buttonState", {isPlaying}); // just to make sure everything is setup correctly
+
     function onToggle() {
         isPlaying ? progress.set(playCoords) : progress.set(pauseCoords);
         isPlaying = !isPlaying;
+        dispatch("buttonState", {isPlaying});
     }
   
     function pathsToCoords(paths: String[]): number[][] {

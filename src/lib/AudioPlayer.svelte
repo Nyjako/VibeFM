@@ -1,10 +1,16 @@
 <script lang="ts">
     import PlayePauseButton from "./PlayePauseButton.svelte";
 
+    export let stream: string;
+
     let song_title = "Test title"
     let song_artist = "Test author"
-
     let player_height = "80px"
+    let isPlaying = true;
+
+    function handlePlayingStatus(event: CustomEvent<{ isPlaying: boolean }>) {
+        isPlaying = event.detail.isPlaying;
+    }
 
 </script>
 
@@ -13,6 +19,7 @@
 
     <div class="play-pause-button">
         <PlayePauseButton 
+            on:buttonState={handlePlayingStatus}
             fill_color="rgb(33, 33, 33)"
             background_color="rgb(230, 230, 230)"
             background_size={50}
@@ -24,6 +31,8 @@
         <p class="title" >{song_title}</p>
         <p>By <span class="artist">{song_artist}</span></p>
     </div>
+
+    <p>Is Playing: {isPlaying ? 'Yes' : 'No'}</p>
 
     <div class="spacer-right"></div>
 </div>

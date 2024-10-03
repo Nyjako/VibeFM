@@ -12,7 +12,7 @@
 </script>
 
 <div class="container">
-    <AudioPlayer />
+    <AudioPlayer stream=""/>
 </div>
 
 <style>
